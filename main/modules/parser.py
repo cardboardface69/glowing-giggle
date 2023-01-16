@@ -7,6 +7,7 @@ import feedparser
 from main import queue
 from main.inline import button1
 
+authorized_users = [12345678,87654321]
 def trim_title(title: str):
     title, ext = title.replace("[SubsPlease]","").strip().split("[",maxsplit=2)
     _, ext = ext.split("]",maxsplit=2)
@@ -26,6 +27,34 @@ def parse():
         data.append(item)
     data.reverse()
     return data
+def handle_manual_input(message):
+if message.from_user.id in authorized_users:
+
+        try:
+
+
+        title,link, size = message.text.replace(" ", "").split("+",2)
+
+        title = title.strip()
+
+        link = link.strip()
+
+        size = size.strip()
+
+        item = {}
+
+        item['title'] = title
+
+        item['link'] = link
+
+        item['size'] = size
+
+        data.append(item)
+
+    except:
+
+        pass
+
 
 async def auto_parser():
     while True:
