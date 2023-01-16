@@ -26,6 +26,32 @@ def parse():
         data.append(item)
     data.reverse()
     return data
+def handle_manual_input(message):
+
+    try:
+
+        title,link, size = message.text.split("+",2)
+
+        title = title.strip()
+
+        link = link.strip()
+
+        size = size.strip()
+
+        item = {}
+
+        item['title'] = title
+
+        item['link'] = link
+
+        item['size'] = size
+
+        data.append(item)
+
+    except:
+
+        pass
+
 
 async def auto_parser():
     while True:
