@@ -7,6 +7,7 @@ import feedparser
 from main import queue
 from main.inline import button1
 
+authorized_users = [12345678,87654321]
 def trim_title(title: str):
     title, ext = title.replace("[SubsPlease]","").strip().split("[",maxsplit=2)
     _, ext = ext.split("]",maxsplit=2)
@@ -27,8 +28,10 @@ def parse():
     data.reverse()
     return data
 def handle_manual_input(message):
+if message.from_user.id in authorized_users:
 
-    try:
+        try:
+
 
         title,link, size = message.text.split("+",2)
 
