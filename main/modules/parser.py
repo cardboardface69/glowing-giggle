@@ -33,7 +33,7 @@ if message.from_user.id in authorized_users:
         try:
 
 
-        title,link, size = message.text.split("+",2)
+        title,link, size = message.text.replace(" ", "").split("+",2)
 
         title = title.strip()
 
